@@ -20,18 +20,8 @@ export class NavComponent implements OnInit {
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
-      this.getUserDetails();
+      this.username = (await this.oktaAuth.getUser()).name || '';
       console.log(this.username + " has been authenticated.");
-    }
-  }
-
-  getUserDetails() {
-    if (this.isAuthenticated) {
-      this.oktaAuth.getUser().then(
-        (result) => {
-          this.username = result.name!;
-        }
-      )
     }
   }
 

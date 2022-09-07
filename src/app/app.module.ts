@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router, RouterModule } from '@angular/router';
-import { Injector } from '@angular/core';
 
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -14,13 +12,6 @@ import { NavComponent } from './nav/nav.component';
 import nttOktaConfig from './config/ntt-okta-config';
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
-
-/* const oktaConfig = Object.assign({
-  onAuthRequired: (OktaAuth: any, injector: Injector) => {
-    const router = injector.get(Router);
-    router.navigate(['/login']);
-  }
-}, nttOktaConfig.oidc) */
 
 @NgModule({
   declarations: [
@@ -42,4 +33,5 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
