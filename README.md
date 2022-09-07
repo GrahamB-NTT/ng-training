@@ -1,1 +1,1 @@
-# ng-training
+Angular Training Project
