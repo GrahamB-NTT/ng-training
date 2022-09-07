@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 
