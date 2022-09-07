@@ -41,6 +41,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.oktaSignIn.remove();
+    
     const originalUri = this.oktaAuth.getOriginalUri();
     if (!originalUri || originalUri === Default_Original_Uri) {
       this.oktaAuth.setOriginalUri('/');
@@ -51,10 +53,12 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.oktaSignIn.state = searchParams.get('state');
 
     this.oktaSignIn.showSignInToGetTokens({
-      el: '#okta-signin'
+      el: '#okta-signin',
+      baseUrl: 'https://dev-39960447.okta.com/'
     }).then((tokens: Tokens) => {
       this.oktaSignIn.remove();
       this.oktaAuth.handleLoginRedirect(tokens);
+      this.oktaSignIn.hide();
     }).catch((e: any) => {
       throw e;
     });
