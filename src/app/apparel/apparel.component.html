@@ -1,16 +1,26 @@
-<app-nav></app-nav>
 <div class="mainPage">
-    <div class="p-5 m-1" style="text-align: center;">
+    <app-nav></app-nav>
+    <div class="p-3 m-0" style="text-align: center;">
         <div *ngIf="apparelString === ''" class="container">
-            <div class="row">
-                <div class="col-sm" ng-app="app-apparel" ng-controller="menCtrl">
-                    <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp-removebg-preview.png" style="height:350px;width:200px;">
+            <h1>Apparel</h1>
+            <div class="row m-4">
+                <div class="col-sm" ng-app="app-apparel">
+                    <p>Men's</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp.png" style="height:350px;width:200px;">
+                    </div>
                 </div>
                 <div class="col-sm">
-                    <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectWomen()" src="../../assets/imageRoutes/fmApp-removebg-preview.png" style="height:350px;width:200px;">
+                    <p>Women's</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectWomen()" src="../../assets/imageRoutes/fmApp.png" style="height:350px;width:200px;">
+                    </div>
                 </div>
                 <div class="col-sm">
-                    <img type="button" class="border border-secondary rounded" (click)="onSelectPride()" src="../../assets/imageRoutes/nttPride.jfif" style="height:350px;width:200px;">
+                    <p>Pride</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded" (click)="onSelectPride()" src="../../assets/imageRoutes/nttPride.jfif" style="height:350px;width:200px;">
+                    </div>
                 </div>
             </div>
         </div>

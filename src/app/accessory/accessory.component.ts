@@ -11,10 +11,15 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 export class AccessoryComponent implements OnInit {
 
   isAuthenticated: boolean = false;
+  accessString: string = '';
 
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) { }
 
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
+
+  onSelectBags() { this.accessString = 'bags' };
+  onSelectSwag() { this.accessString = 'swag' };
+  onSelectMain() { this.accessString = '' };
 }

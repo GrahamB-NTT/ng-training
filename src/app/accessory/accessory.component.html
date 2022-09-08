@@ -1,10 +1,30 @@
-<app-nav></app-nav>
 <div class="mainPage">
-    <div class="p-5 m-1" style="text-align: center;">
-        <div *ngIf="true" class="container">
-            <img src="https://www.jpaulstore.com/nttdata/images/Accessories Categories.png">
+    <app-nav></app-nav>
+    <div class="p-3 m-0" style="text-align: center;">
+        <div *ngIf="accessString === ''" class="container">
+            <h1>Accessories</h1>
+            <div class="row m-4">
+                <div class="col-sm" ng-app="app-apparel">
+                    <p>Swag</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectSwag()" src="../../assets/imageRoutes/swag.png" style="height:300px;width:325px;">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <p>Bags</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectBags()" src="../../assets/imageRoutes/bag.png" style="height:300px;width:325px;">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div *ngIf="false" class="container">
-            <p>Accessories</p>
+        <div *ngIf="accessString === 'bags'" class="container">
+            <h1>Bags</h1>
+            <button (click)="onSelectMain()">Back</button>
+        </div>
+        <div *ngIf="accessString === 'swag'" class="container">
+            <h1>Swag</h1>
+            <button (click)="onSelectMain()">Back</button>
+        </div>
     </div>
 </div>

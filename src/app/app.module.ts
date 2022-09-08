@@ -11,6 +11,11 @@ import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
 import { ApparelComponent } from './apparel/apparel.component';
 import { AccessoryComponent } from './accessory/accessory.component';
+import { PromoComponent } from './promo/promo.component';
+import { SaleComponent } from './sale/sale.component';
+import { CartComponent } from './cart/cart.component';
+import { PolicyComponent } from './policy/policy.component';
+import { OrdersComponent } from './orders/orders.component';
 import nttOktaConfig from './config/ntt-okta-config';
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
@@ -22,7 +27,12 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
     LoginComponent,
     NavComponent,
     ApparelComponent,
-    AccessoryComponent
+    AccessoryComponent,
+    PromoComponent,
+    SaleComponent,
+    CartComponent,
+    PolicyComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
