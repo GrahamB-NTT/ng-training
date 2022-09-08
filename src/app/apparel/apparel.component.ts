@@ -19,4 +19,9 @@ export class ApparelComponent implements OnInit {
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
   }
+
+  onSelectMen() { this.apparelString = 'male'; }
+  onSelectWomen() { this.apparelString = 'female'; }
+  onSelectPride() { this.apparelString = 'pride'; }
+  onSelectMain() { this.apparelString = ''; }
 }
