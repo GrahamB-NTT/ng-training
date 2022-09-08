@@ -6,8 +6,6 @@ import { OktaAuth, Tokens } from '@okta/okta-auth-js';
 
 import nttOktaConfig from '../config/ntt-okta-config';
 
-const Default_Original_Uri = window.location.origin;
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
