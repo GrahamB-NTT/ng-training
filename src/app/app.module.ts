@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
+import { ApparelComponent } from './apparel/apparel.component';
+import { AccessoryComponent } from './accessory/accessory.component';
 import nttOktaConfig from './config/ntt-okta-config';
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
@@ -18,7 +20,9 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
     AppComponent,
     HomeComponent,
     LoginComponent,
-    NavComponent
+    NavComponent,
+    ApparelComponent,
+    AccessoryComponent
   ],
   imports: [
     BrowserModule,

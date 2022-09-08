@@ -1,0 +1,25 @@
+<app-nav></app-nav>
+<div class="mainPage">
+    <div class="p-5 m-3" style="text-align: center;">
+        <div *ngIf="apparelString === ''" class="container">
+            <img src="https://www.jpaulstore.com/nttdata/images/Apparel%20Categories%202.png">
+            <div class="row">
+                <div class="col-sm">
+                    1/3 Column
+                </div>
+                <div class="col-sm">
+                    2/3 Column
+                </div>
+                <div class="col-sm">
+                    3/3 Column
+                </div>
+            </div>
+        </div>
+        <div *ngIf="apparelString === 'male'" class="container">
+            <p>Men's Apparel</p>
+        </div>
+        <div *ngIf="apparelString === 'female'" class="container">
+            <p>Women's Apparel</p>
+        </div>
+    </div>
+</div>

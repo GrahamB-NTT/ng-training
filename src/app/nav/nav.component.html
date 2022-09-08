@@ -1,23 +1,42 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #ebebed;">
-    <div class="container">
-      <a class="navbar-brand" routerLink="/home"><img src="../../assets/nttLogo.png" alt=""></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      </div>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" data-target="#" aria-expanded="false" role="button">
-            <img class="border border-dark rounded-circle" src="../../assets/erling.webp" height="60" width="60">
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="https://myaccount.microsoft.com/?ref=MeControl">My Profile</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" role="button" *ngIf="isAuthenticated" (click)="logout()" aria-current="page">Logout</a>
-            <a class="dropdown-item" *ngIf="!isAuthenticated" aria-current="page" routerLink="/login">Login</a>
-          </div>
+<nav class="navbar navbar-expand-lg" style="background-color: #617fb7;">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/home"><img src="../../assets/logos/nttLogoBlue.PNG" alt="" style="width:255px;height:55px"></a>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto">
+         <li class="navbar-item active">
+           <a class="nav-link" routerLink="/apparel" style="font-weight:600;">Apparel</a>
+         </li>
+         <li class="navbar-item active">
+          <a class="nav-link" routerLink="/accessory" style="font-weight:600;">Accessories</a>
         </li>
+        <li class="navbar-item active">
+          <a class="nav-link" routerLink="/home" style="font-weight:600;">Promos</a>
+        </li>
+        <li class="navbar-item active">
+          <a class="nav-link" routerLink="/home" style="font-weight:600;">On Sale</a>
+        </li>
+       </ul>
+       <ul class="navbar-nav ms-auto">
+        <li class="navbar-item active">
+          <a class="nav-link" title="View Cart" routerLink="/home"><img src="../../assets/logos/cart.png" alt="View Cart" style="width:35px;height:35px;opacity:.75;"></a>
+        </li>
+        <li class="navbar-item active">
+          <a class="nav-link" title="Order History" routerLink="/home"><img src="../../assets/logos/orderHistory.png" alt="Order History" style="width:35px;height:35px;opacity:.75;"></a>
+        </li>
+       </ul>
+     </div>
+     <ul class="navbar-nav ms-auto">
+       <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" data-target="#" aria-expanded="false" role="button">
+           <img class="border border-dark rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;">
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <a class="dropdown-item" href="https://myaccount.microsoft.com/?ref=MeControl">My Profile</a>
+           <div class="dropdown-divider"></div>
+           <a class="dropdown-item" role="button" *ngIf="isAuthenticated" (click)="logout()" aria-current="page">Logout</a>
+           <a class="dropdown-item" *ngIf="!isAuthenticated" aria-current="page" routerLink="/login">Login</a>
+         </div>
+       </li>
       </ul>
-    </div>
-  </nav>
+  </div>
+</nav>
