@@ -28,5 +28,4 @@ export class NavComponent implements OnInit {
   logout() {
     this.oktaAuth.signOut();
   }
-
 }

@@ -1,0 +1,40 @@
+<div class="mainPage">
+    <app-nav></app-nav>
+    <div class="p-3 m-0" style="text-align: center;">
+        <div *ngIf="apparelString === ''" class="container">
+            <h1>Apparel</h1>
+            <div class="row m-4">
+                <div class="col-sm" ng-app="app-apparel">
+                    <p>Men's</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp.png" style="height:350px;width:200px;">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <p>Women's</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded bg-light" (click)="onSelectWomen()" src="../../assets/imageRoutes/fmApp.png" style="height:350px;width:200px;">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <p>Pride</p>
+                    <div class="hovShadow rounded">
+                        <img type="button" class="border border-secondary rounded" (click)="onSelectPride()" src="../../assets/imageRoutes/nttPride.jfif" style="height:350px;width:200px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="apparelString === 'male'" class="container">
+            <h1>Men's Apparel</h1>
+            <button (click)="onSelectMain()">Back</button>
+        </div>
+        <div *ngIf="apparelString === 'female'" class="container">
+            <h1>Women's Apparel</h1>
+            <button (click)="onSelectMain()">Back</button>
+        </div>
+        <div *ngIf="apparelString === 'pride'" class="container">
+            <h1>Pride Apparel</h1>
+            <button (click)="onSelectMain()">Back</button>
+        </div>
+    </div>
+</div>

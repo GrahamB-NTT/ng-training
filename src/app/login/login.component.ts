@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
     this.oktaSignIn = new OktaSignIn ({
-      logo: 'assets/nttLogo.png',
+      logo: 'assets/logos/nttLogo.png',
       features: {
         registration: false
       },
