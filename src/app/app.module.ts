@@ -5,10 +5,9 @@ import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { NavComponent } from './nav/nav.component';
 import { ApparelComponent } from './apparel/apparel.component';
 import { AccessoryComponent } from './accessory/accessory.component';
 import { PromoComponent } from './promo/promo.component';
@@ -17,14 +16,17 @@ import { CartComponent } from './cart/cart.component';
 import { PolicyComponent } from './policy/policy.component';
 import { OrdersComponent } from './orders/orders.component';
 import nttOktaConfig from './config/ntt-okta-config';
+import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
+
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
+    HomeComponent,
     NavComponent,
     ApparelComponent,
     AccessoryComponent,
@@ -37,7 +39,7 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule
+    OktaAuthModule,
   ],
   providers: [
     {

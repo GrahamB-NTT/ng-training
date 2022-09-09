@@ -24,14 +24,24 @@
           <a class="nav-link" routerLink="/orders"><p style="font-size:10px;text-align:center;line-height:0;"><b>Orders</b></p><img src="../../assets/logos/orderHistory.png" style="width:40px;height:40px;"></a>
         </li>
         <li class="navbar-item active">
-          <a class="nav-link" routerLink="/policy"><p style="font-size:10px;text-align:center;line-height:0;"><b>Policy</b></p><img src="../../assets/logos/info.png" style="width:40px;height:40px;"></a>
+          <a class="nav-link" routerLink="/policy"><p style="font-size:10px;text-align:center;line-height:0;"><b>Info</b></p><img src="../../assets/logos/info.png" style="width:40px;height:40px;"></a>
         </li>
        </ul>
      </div>
-     <ul class="navbar-item ms-auto" style="list-style-type: none;">
-       <li class="nav-item dropdown">
+     <!--<ul class="navbar-item ms-auto" style="list-style-type: none;">-->
+      <div mbdDropdown class="dropdown">
+        <a class="btn btn-primary dropdown-toggle" role="button" id="dropdownMenuLink" mbdDropdownToggle aria-expanded="false" style="padding-top:15px;">
+          <img class="border border-dark rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;">
+        </a>
+        <ul mbdDropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" href="https://myaccount.microsoft.com/?ref=MeControl">My Profile</a></li>
+          <li><a class="dropdown-item" role="button" *ngIf="isAuthenticated" (click)="logout()" aria-current="page">Logout</a></li>
+          <li><a class="dropdown-item" *ngIf="!isAuthenticated" aria-current="page" routerLink="/login">Login</a></li>
+        </ul>
+      </div>
+<!--       <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" data-target="#" aria-expanded="false" role="button" style="padding-top: 15px;">
-           <img class="border border-dark rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;">
+           
          </a>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            <a class="dropdown-item" href="https://myaccount.microsoft.com/?ref=MeControl">My Profile</a>
@@ -39,7 +49,7 @@
            <a class="dropdown-item" role="button" *ngIf="isAuthenticated" (click)="logout()" aria-current="page">Logout</a>
            <a class="dropdown-item" *ngIf="!isAuthenticated" aria-current="page" routerLink="/login">Login</a>
          </div>
-       </li>
-      </ul>
+       </li>-->
+      <!--</ul>-->
   </div>
 </nav>
