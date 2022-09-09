@@ -19,7 +19,6 @@ import nttOktaConfig from './config/ntt-okta-config';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 
-
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
 
 @NgModule({
@@ -39,7 +38,7 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule,
+    OktaAuthModule
   ],
   providers: [
     {
