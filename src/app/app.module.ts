@@ -17,6 +17,7 @@ import { CartComponent } from './cart/cart.component';
 import { PolicyComponent } from './policy/policy.component';
 import { OrdersComponent } from './orders/orders.component';
 import nttOktaConfig from './config/ntt-okta-config';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
 
@@ -37,7 +38,8 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule
+    OktaAuthModule,
+    NgbModule
   ],
   providers: [
     {
