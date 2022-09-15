@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -38,7 +40,9 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
   imports: [
     BrowserModule,
     AppRoutingModule,
-    OktaAuthModule
+    OktaAuthModule,
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [
     {

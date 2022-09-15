@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.oktaSignIn = new OktaSignIn ({
       logo: 'assets/logos/nttLogo.png',
       features: {
-        registration: false
+        registration: true
       },
       i18n: {
         'en': {
