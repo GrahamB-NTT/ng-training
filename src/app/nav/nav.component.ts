@@ -48,6 +48,7 @@ export class NavComponent implements OnInit {
     } else if (val.charAt(0) === '/') {
       if (val === '/login') {
         this.logout();
+        return;
       }
       this.router.navigate([val]);
     }
