@@ -17,24 +17,78 @@
                     </div>
                 </div>
                 <div class="col-sm">
-                    <p>Pride</p>
+                    <p>Neutral & Pride</p>
                     <div class="hovShadow rounded">
                         <img type="button" class="border border-secondary rounded" (click)="onSelectPride()" src="../../assets/imageRoutes/nttPride.jfif" style="height:350px;width:200px;">
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="apparelString === 'male'" class="container">
+        <div *ngIf="apparelString === 'men'" class="container">
             <h1>Men's Apparel</h1>
             <button (click)="onSelectMain()">Back</button>
+            <div class="p-3 m-0" style="text-align: center;">
+                <table class="table" id="tab">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let entry of products">
+                            <td>{{entry.title}}</td>
+                            <td>{{entry.price}}</td>
+                            <td>{{entry.image}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div *ngIf="apparelString === 'female'" class="container">
+        <div *ngIf="apparelString === 'women'" class="container">
             <h1>Women's Apparel</h1>
             <button (click)="onSelectMain()">Back</button>
+            <div class="p-3 m-0" style="text-align: center;">
+                <table class="table" id="tab">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let entry of products">
+                            <td>{{entry.title}}</td>
+                            <td>{{entry.price}}</td>
+                            <td>{{entry.image}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div *ngIf="apparelString === 'pride'" class="container">
-            <h1>Pride Apparel</h1>
+        <div *ngIf="apparelString === 'neutral'" class="container">
+            <h1>Neutral & Pride Apparel</h1>
             <button (click)="onSelectMain()">Back</button>
+            <div class="p-3 m-0" style="text-align: center;">
+                <table class="table" id="tab">
+                    <thead>
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let entry of products">
+                            <td>{{entry.title}}</td>
+                            <td>{{entry.price}}</td>
+                            <td>{{entry.image}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

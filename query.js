@@ -54,9 +54,46 @@ const postOrderInfo = (request, response) => {
     })
 }
 
+const getProductList = (request, response) => {
+    pool.query('select * from "ProductList" order by "id" asc', (e, res) => {
+        if (e) {
+            throw e;
+        }
+
+        response.status(200).json(res.rows);
+    })
+}
+
+const getProductById = (request, response) => {
+    const id = request.params.id;
+
+    pool.query('select * from "ProductList" where "id" = $1', [id], (e, res) => {
+        if (e) {
+            throw e;
+        }
+
+        response.status(200).json(res.rows);
+    })
+}
+
+const getProductByCategory = (request, response) => {
+    const id = request.params.id;
+
+    pool.query('select * from "ProductList" where "category" = $1', [id], (e, res) => {
+        if (e) {
+            throw e;
+        }
+
+        response.status(200).json(res.rows);
+    })
+}
+
 module.exports = {
     getUsers,
     getUserById,
     getOrderInfo,
-    postOrderInfo
+    postOrderInfo,
+    getProductList,
+    getProductById,
+    getProductByCategory
 }

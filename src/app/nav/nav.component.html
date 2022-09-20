@@ -15,18 +15,10 @@
         <li class="navbar-item active">
           <a class="nav-link" routerLink="/sale" style="font-weight:550;">On Sale</a>
         </li>
+        <li class="navbar-item form-group">
+          <input type="text" class="form-control" placeholder="search products">
+        </li>
        </ul>
-       <!--<ul class="navbar-nav ms-auto">
-        <li class="navbar-item active">
-          <a class="nav-link" routerLink="/cart"><p style="font-size:10px;text-align:center;line-height:0;font-weight:550;">View Cart</p><img src="../../assets/logos/cart.png" style="width:40px;height:40px;"></a>
-        </li>
-        <li class="navbar-item active">
-          <a class="nav-link" routerLink="/orders"><p style="font-size:10px;text-align:center;line-height:0;font-weight:550;">Orders</p><img src="../../assets/logos/orderHistory.png" style="width:40px;height:40px;"></a>
-        </li>
-        <li class="navbar-item active">
-          <a class="nav-link" routerLink="/policy"><p style="font-size:10px;text-align:center;line-height:0;font-weight:550;">Info</p><img src="../../assets/logos/info.png" style="width:40px;height:40px;"></a>
-        </li>
-       </ul>-->
      </div>
      <div *ngIf="isAuthenticated">
       <img class="navbar-item border border-dark btn rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;" [matMenuTriggerFor]="menu">
@@ -41,6 +33,7 @@
           <span (click)="navigateTo('/cart')">
             <img width="17" height="17" src="../../assets/logos/cart.png" style="opacity: .7;">
             View Cart
+            <div style="font-size: 11px;" class="badge bg-danger">0</div>
           </span>
         </button>
         <button mat-menu-item>

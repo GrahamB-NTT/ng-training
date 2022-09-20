@@ -27,6 +27,9 @@ app.get('/users', db.getUsers);
 app.get('/users/:id', db.getUserById);
 app.get('/orders/:id', db.getOrderInfo);
 app.post('/orders', db.postOrderInfo);
+app.get('/products', db.getProductList);
+app.get('/products/:id', db.getProductById);
+app.get('/selectProduct/:id', db.getProductByCategory);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

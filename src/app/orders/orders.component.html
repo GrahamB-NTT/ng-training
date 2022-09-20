@@ -1,6 +1,30 @@
 <div class="mainPage">
     <app-nav></app-nav>
     <div class="p-3 m-0" style="text-align: center;">
-        <h1>Order History</h1>
+        <h1>Order History for {{username}}</h1>
+    </div>
+    <div class="p-3 m-0" style="text-align: center;">
+        <table class="table" id="tab">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Order Number</th>
+                    <th scope="col">Paid</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let entry of orders">
+                    <td>{{entry.Customer_Name}}</td>
+                    <td>{{entry.Customer_Email}}</td>
+                    <td>{{entry.Order_Number}}</td>
+                    <td>{{entry.Paid}}</td>
+                    <td>{{entry.Transaction_Date}}</td>
+                    <td>{{entry.Order_Description}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
