@@ -4,42 +4,65 @@
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
        <ul class="navbar-nav me-auto">
          <li class="navbar-item active">
-           <a class="nav-link" routerLink="/apparel" style="font-weight:600;">Apparel</a>
+           <a class="nav-link" routerLink="/apparel" style="font-weight:550;">Apparel</a>
          </li>
          <li class="navbar-item active">
-          <a class="nav-link" routerLink="/accessory" style="font-weight:600;">Accessories</a>
+          <a class="nav-link" routerLink="/accessory" style="font-weight:550;">Accessories</a>
         </li>
         <li class="navbar-item active">
-          <a class="nav-link" routerLink="/promo" style="font-weight:600;">Promos</a>
+          <a class="nav-link" routerLink="/promo" style="font-weight:550;">Promos</a>
         </li>
         <li class="navbar-item active">
-          <a class="nav-link" routerLink="/sale" style="font-weight:600;">On Sale</a>
+          <a class="nav-link" routerLink="/sale" style="font-weight:550;">On Sale</a>
         </li>
        </ul>
-       <ul class="navbar-nav ms-auto">
+       <!--<ul class="navbar-nav ms-auto">
         <li class="navbar-item active">
-          <a class="nav-link" routerLink="/cart"><p style="font-size:10px;text-align:center;line-height:0;"><b>View Cart</b></p><img src="../../assets/logos/cart.png" style="width:40px;height:40px;"></a>
+          <a class="nav-link" routerLink="/cart"><p style="font-size:10px;text-align:center;line-height:0;font-weight:550;">View Cart</p><img src="../../assets/logos/cart.png" style="width:40px;height:40px;"></a>
         </li>
         <li class="navbar-item active">
-          <a class="nav-link" routerLink="/orders"><p style="font-size:10px;text-align:center;line-height:0;"><b>Orders</b></p><img src="../../assets/logos/orderHistory.png" style="width:40px;height:40px;"></a>
+          <a class="nav-link" routerLink="/orders"><p style="font-size:10px;text-align:center;line-height:0;font-weight:550;">Orders</p><img src="../../assets/logos/orderHistory.png" style="width:40px;height:40px;"></a>
         </li>
         <li class="navbar-item active">
-          <a class="nav-link" routerLink="/policy"><p style="font-size:10px;text-align:center;line-height:0;"><b>Policy</b></p><img src="../../assets/logos/info.png" style="width:40px;height:40px;"></a>
+          <a class="nav-link" routerLink="/policy"><p style="font-size:10px;text-align:center;line-height:0;font-weight:550;">Info</p><img src="../../assets/logos/info.png" style="width:40px;height:40px;"></a>
         </li>
-       </ul>
+       </ul>-->
      </div>
-     <ul class="navbar-item ms-auto" style="list-style-type: none;">
-       <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" data-target="#" aria-expanded="false" role="button" style="padding-top: 15px;">
-           <img class="border border-dark rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;">
-         </a>
-         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <a class="dropdown-item" href="https://myaccount.microsoft.com/?ref=MeControl">My Profile</a>
-           <div class="dropdown-divider"></div>
-           <a class="dropdown-item" role="button" *ngIf="isAuthenticated" (click)="logout()" aria-current="page">Logout</a>
-           <a class="dropdown-item" *ngIf="!isAuthenticated" aria-current="page" routerLink="/login">Login</a>
-         </div>
-       </li>
-      </ul>
+     <div *ngIf="isAuthenticated">
+      <img class="navbar-item border border-dark btn rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;" [matMenuTriggerFor]="menu">
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span (click)="navigateTo('https://myaccount.microsoft.com/?ref=MeControl')">
+            <img width="17" height="17" src="../../assets/logos/proIcon.png" style="opacity: .7;">
+            My Profile
+          </span>
+        </button>
+        <button mat-menu-item>
+          <span (click)="navigateTo('/cart')">
+            <img width="17" height="17" src="../../assets/logos/cart.png" style="opacity: .7;">
+            View Cart
+          </span>
+        </button>
+        <button mat-menu-item>
+          <span (click)="navigateTo('/orders')">
+            <img width="17" height="17" src="../../assets/logos/orderHistory.png" style="opacity: .7;">
+            Order History
+          </span>
+        </button>
+        <button mat-menu-item>
+          <span (click)="navigateTo('/policy')">
+            <img width="17" height="17" src="../../assets/logos/info.png" style="opacity: .7;">
+            Policies & FAQ
+          </span>
+        </button>
+        <button mat-menu-item (click)="navigateTo('/login')">
+          <span>
+            <img width="17" height="17" src="../../assets/logos/logoutIcon.png" style="opacity: .7;">
+            Logout
+          </span>
+        </button>
+      </mat-menu>
+      </div>
+      <button *ngIf="!isAuthenticated" routerLink="/login">Login</button>
   </div>
 </nav>

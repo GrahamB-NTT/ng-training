@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 
@@ -14,22 +14,24 @@ import { PromoComponent } from './promo/promo.component';
 import { SaleComponent } from './sale/sale.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [OktaAuthGuard]},
+  { path: 'home', component: HomeComponent, canActivate: [OktaAuthGuard] },
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'apparel', component: ApparelComponent},
-  { path: 'accessory', component: AccessoryComponent},
-  { path: 'promo', component: PromoComponent},
-  { path: 'sale', component: SaleComponent},
-  { path: 'cart', component: CartComponent},
-  { path: 'policy', component: PolicyComponent},
-  { path: 'orders', component: OrdersComponent},
+  { path: 'apparel', component: ApparelComponent },
+  { path: 'accessory', component: AccessoryComponent },
+  { path: 'promo', component: PromoComponent },
+  { path: 'sale', component: SaleComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'policy', component: PolicyComponent },
+  { path: 'orders', component: OrdersComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules
+  })],
   exports: [RouterModule]
 })
 

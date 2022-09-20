@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
 
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { NavComponent } from './nav/nav.component';
 import { ApparelComponent } from './apparel/apparel.component';
 import { AccessoryComponent } from './accessory/accessory.component';
 import { PromoComponent } from './promo/promo.component';
@@ -17,15 +19,16 @@ import { CartComponent } from './cart/cart.component';
 import { PolicyComponent } from './policy/policy.component';
 import { OrdersComponent } from './orders/orders.component';
 import nttOktaConfig from './config/ntt-okta-config';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HomeComponent } from './home/home.component';
+import { NavComponent } from './nav/nav.component';
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
+    HomeComponent,
     NavComponent,
     ApparelComponent,
     AccessoryComponent,
@@ -39,7 +42,9 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
     BrowserModule,
     AppRoutingModule,
     OktaAuthModule,
-    NgbModule
+    BrowserAnimationsModule,
+    MatMenuModule,
+    HttpClientModule
   ],
   providers: [
     {
