@@ -1,30 +1,25 @@
+<body>
 <div class="mainPage">
     <app-nav></app-nav>
     <div class="p-3 m-0" style="text-align: center;">
-        <div *ngIf="accessString === ''" class="container">
+        <div class="container">
             <h1>Accessories</h1>
-            <div class="row m-4">
-                <div class="col-sm" ng-app="app-apparel">
-                    <p>Swag</p>
-                    <div class="hovShadow rounded">
-                        <img type="button" class="border border-secondary rounded" (click)="onSelectSwag()" src="../../assets/imageRoutes/swag.png" style="height:300px;width:325px;background-color:rgb(228, 212, 158);">
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <p>Bags</p>
-                    <div class="hovShadow rounded">
-                        <img type="button" class="border border-secondary rounded" (click)="onSelectBags()" src="../../assets/imageRoutes/bag.png" style="height:300px;width:325px;background-color:rgb(156, 228, 232);">
+            <h5>Filters:</h5>
+            <div class="p-3 m-0" style="text-align: center;">
+                <div class="row justify-content-center">
+                    <div *ngFor="let entry of products" class="card col-sm-3 m-0">
+                        <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{entry.title}}</h5>
+                            <p class="card-text">{{entry.price}}</p>
+                            <a class="btn btn-primary" style="background-color: #617fb7; color: white;border: none;">
+                                Add To Cart
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div *ngIf="accessString === 'bags'" class="container">
-            <h1>Bags</h1>
-            <button (click)="onSelectMain()">Back</button>
-        </div>
-        <div *ngIf="accessString === 'swag'" class="container">
-            <h1>Swag</h1>
-            <button (click)="onSelectMain()">Back</button>
-        </div>
     </div>
 </div>
+</body>

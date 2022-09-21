@@ -1,7 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 import { OktaAuth } from '@okta/okta-auth-js';
 import { OKTA_AUTH } from '@okta/okta-angular';
+
+import { ApiService } from '../api.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-accessory',
@@ -11,15 +15,18 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 export class AccessoryComponent implements OnInit {
 
   isAuthenticated: boolean = false;
-  accessString: string = '';
+  products!: Product[]
 
-  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) { }
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService) { }
 
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
-  }
 
-  onSelectBags() { this.accessString = 'bags' };
-  onSelectSwag() { this.accessString = 'swag' };
-  onSelectMain() { this.accessString = '' };
+    if (this.isAuthenticated) {
+      this.api.getProductByCategory('access').subscribe(data => {
+        console.log(data);
+        this.products = data;
+      })
+    }
+  }
 }

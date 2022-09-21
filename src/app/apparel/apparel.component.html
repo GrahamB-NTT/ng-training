@@ -1,3 +1,4 @@
+<body>
 <div class="mainPage">
     <app-nav></app-nav>
     <div class="p-3 m-0" style="text-align: center;">
@@ -7,13 +8,13 @@
                 <div class="col-sm" ng-app="app-apparel">
                     <p>Men's</p>
                     <div class="hovShadow rounded">
-                        <img type="button" class="border border-secondary rounded" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp.png" style="height:350px;width:200px;background-color:rgb(165, 227, 146);">
+                        <img type="button" class="border border-secondary rounded" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp.png" style="height:350px;width:200px;background-color: white;">
                     </div>
                 </div>
                 <div class="col-sm">
                     <p>Women's</p>
                     <div class="hovShadow rounded">
-                        <img type="button" class="border border-secondary rounded" (click)="onSelectWomen()" src="../../assets/imageRoutes/fmApp.png" style="height:350px;width:200px;background-color: rgb(196, 135, 231);">
+                        <img type="button" class="border border-secondary rounded" (click)="onSelectWomen()" src="../../assets/imageRoutes/fmApp.png" style="height:350px;width:200px;background-color: white;">
                     </div>
                 </div>
                 <div class="col-sm">
@@ -28,67 +29,56 @@
             <h1>Men's Apparel</h1>
             <button (click)="onSelectMain()">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
-                <table class="table" id="tab">
-                    <thead>
-                        <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Image</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let entry of products">
-                            <td>{{entry.title}}</td>
-                            <td>{{entry.price}}</td>
-                            <td>{{entry.image}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="row justify-content-center">
+                    <div *ngFor="let entry of products" class="card col-sm-3 m-0">
+                        <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{entry.title}}</h5>
+                            <p class="card-text">{{entry.price}}</p>
+                            <a class="btn btn-primary" style="background-color: #617fb7; color: white;border: none;">
+                                Add To Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div *ngIf="apparelString === 'women'" class="container">
             <h1>Women's Apparel</h1>
             <button (click)="onSelectMain()">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
-                <table class="table" id="tab">
-                    <thead>
-                        <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Image</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let entry of products">
-                            <td>{{entry.title}}</td>
-                            <td>{{entry.price}}</td>
-                            <td>{{entry.image}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="row justify-content-center">
+                    <div *ngFor="let entry of products" class="card col-sm-3 m-0">
+                        <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{entry.title}}</h5>
+                            <p class="card-text">{{entry.price}}</p>
+                            <a class="btn btn-primary" style="background-color: #617fb7; color: white;border: none;">
+                                Add To Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div *ngIf="apparelString === 'neutral'" class="container">
             <h1>Neutral & Pride Apparel</h1>
             <button (click)="onSelectMain()">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
-                <table class="table" id="tab">
-                    <thead>
-                        <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Image</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let entry of products">
-                            <td>{{entry.title}}</td>
-                            <td>{{entry.price}}</td>
-                            <td>{{entry.image}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="row justify-content-center">
+                    <div *ngFor="let entry of products" class="card col-sm-3 m-0">
+                        <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{entry.title}}</h5>
+                            <p class="card-text">{{entry.price}}</p>
+                            <a class="btn btn-primary" style="background-color: #617fb7; color: white;border: none;">
+                                Add To Cart
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+</body>

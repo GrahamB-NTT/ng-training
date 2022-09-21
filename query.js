@@ -79,7 +79,7 @@ const getProductById = (request, response) => {
 const getProductByCategory = (request, response) => {
     const id = request.params.id;
 
-    pool.query('select * from "ProductList" where "category" = $1', [id], (e, res) => {
+    pool.query('select * from "ProductList" where "category" = $1 order by "title" asc', [id], (e, res) => {
         if (e) {
             throw e;
         }

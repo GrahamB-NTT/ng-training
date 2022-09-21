@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
 
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
@@ -44,7 +45,8 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
     OktaAuthModule,
     BrowserAnimationsModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule
   ],
   providers: [
     {
