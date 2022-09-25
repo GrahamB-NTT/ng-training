@@ -5,6 +5,7 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 
 import { ApiService } from '../api.service';
 import { Product } from '../product';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-apparel',
@@ -18,7 +19,7 @@ export class ApparelComponent implements OnInit {
   apparelString: string = '';
   products!: Product[];
 
-  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService) { }
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService, private cartServe: CartService) { }
 
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
@@ -28,7 +29,6 @@ export class ApparelComponent implements OnInit {
     this.apparelString = 'men';
 
     this.api.getProductByCategory(this.apparelString).subscribe(data => {
-      console.log(data);
       this.products = data;
     })
   }
@@ -36,7 +36,6 @@ export class ApparelComponent implements OnInit {
     this.apparelString = 'women';
 
     this.api.getProductByCategory(this.apparelString).subscribe(data => {
-      console.log(data);
       this.products = data;
     })
   }
@@ -44,7 +43,6 @@ export class ApparelComponent implements OnInit {
     this.apparelString = 'neutral';
 
     this.api.getProductByCategory(this.apparelString).subscribe(data => {
-      console.log(data);
       this.products = data;
     })
   }
@@ -52,5 +50,9 @@ export class ApparelComponent implements OnInit {
   onSelectMain() {
     this.apparelString = '';
     this.products = [];
+  }
+
+  addToCart(product: any) {
+    this.cartServe.addToCart(product);
   }
 }

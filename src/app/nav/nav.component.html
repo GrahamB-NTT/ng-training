@@ -9,18 +9,12 @@
          <li class="navbar-item active">
           <a class="nav-link" routerLink="/accessory" style="font-weight:550;">Accessories</a>
         </li>
-        <li class="navbar-item active">
-          <a class="nav-link" routerLink="/promo" style="font-weight:550;">Promos</a>
-        </li>
-        <li class="navbar-item active">
-          <a class="nav-link" routerLink="/sale" style="font-weight:550;">On Sale</a>
-        </li>
         <li class="navbar-item form-group">
           <input type="text" class="form-control" placeholder="search products">
         </li>
        </ul>
      </div>
-     <div *ngIf="isAuthenticated">
+     <div>
       <img class="navbar-item border border-dark btn rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;" [matMenuTriggerFor]="menu">
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
@@ -30,25 +24,25 @@
           </span>
         </button>
         <button mat-menu-item>
-          <span (click)="navigateTo('/cart')">
+          <span routerLink="/cart">
             <img width="17" height="17" src="../../assets/logos/cart.png" style="opacity: .7;">
             View Cart
-            <div style="font-size: 11px;" class="badge bg-danger">0</div>
+            <div style="font-size: 11px;" class="badge bg-danger">{{totalItem}}</div>
           </span>
         </button>
         <button mat-menu-item>
-          <span (click)="navigateTo('/orders')">
+          <span routerLink="/orders">
             <img width="17" height="17" src="../../assets/logos/orderHistory.png" style="opacity: .7;">
             Order History
           </span>
         </button>
         <button mat-menu-item>
-          <span (click)="navigateTo('/policy')">
+          <span routerLink="/policy">
             <img width="17" height="17" src="../../assets/logos/info.png" style="opacity: .7;">
             Policies & FAQ
           </span>
         </button>
-        <button mat-menu-item (click)="navigateTo('/login')">
+        <button mat-menu-item routerLink="/login">
           <span>
             <img width="17" height="17" src="../../assets/logos/logoutIcon.png" style="opacity: .7;">
             Logout
@@ -56,6 +50,5 @@
         </button>
       </mat-menu>
       </div>
-      <button *ngIf="!isAuthenticated" routerLink="/login">Login</button>
   </div>
 </nav>

@@ -3,12 +3,7 @@ import { Router } from '@angular/router';
 
 import {OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
-
-interface Category {
-  value: string;
-  viewValue: string;
-  image: string;
-}
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -19,22 +14,18 @@ interface Category {
 export class NavComponent implements OnInit {
 
   isAuthenticated: boolean = false;
-  username: string = '';
+  public totalItem: number = 0;
 
-  categories: Category[] = [
-    { value: 'https://myaccount.microsoft.com/?ref=MeControl', viewValue: 'My Profile', image: '../../assets/logos/proIcon.png' },
-    { value: '/login', viewValue: 'Logout', image: '../../assets/logos/logoutIcon.png' }
-  ]
-
-  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private router: Router) {
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private router: Router, private cartServe: CartService) {
     this.oktaAuth.authStateManager.subscribe(isAuth => this.isAuthenticated = isAuth);
   }
 
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
-      this.username = (await this.oktaAuth.getUser()).name || '';
-      console.log(this.username + " has been authenticated.");
+      this.cartServe.getProducts().subscribe(result => {
+        this.totalItem = result.length;
+      })
     }
   }
 
@@ -43,14 +34,6 @@ export class NavComponent implements OnInit {
   }
 
   navigateTo(val) {
-    if (val.charAt(0) === 'h') {
-      window.location.href = val;
-    } else if (val.charAt(0) === '/') {
-      if (val === '/login') {
-        this.logout();
-        return;
-      }
-      this.router.navigate([val]);
-    }
+    window.location.href = val;
   }
 }

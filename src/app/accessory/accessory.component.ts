@@ -6,6 +6,7 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 
 import { ApiService } from '../api.service';
 import { Product } from '../product';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-accessory',
@@ -17,7 +18,7 @@ export class AccessoryComponent implements OnInit {
   isAuthenticated: boolean = false;
   products!: Product[]
 
-  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService) { }
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService, private cartServe: CartService) { }
 
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
@@ -28,5 +29,9 @@ export class AccessoryComponent implements OnInit {
         this.products = data;
       })
     }
+  }
+
+  addToCart(product: any) {
+    this.cartServe.addToCart(product);
   }
 }

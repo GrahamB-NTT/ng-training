@@ -21,4 +21,8 @@ export class ApiService {
     return this.http.get('http://localhost:4201/selectProduct/' + category);
   }
 
+  public postOrderHistory(httpOptions): Observable<any> {
+    return this.http.post('http://localhost:4201/orders/', httpOptions);
+  }
+
 }
