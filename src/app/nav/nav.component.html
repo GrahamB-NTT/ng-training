@@ -15,7 +15,8 @@
        </ul>
      </div>
      <div>
-      <img class="navbar-item border border-dark btn rounded-circle" src="../../assets/logos/erling.webp" alt="Profile" style="width:60px;height:60px;" [matMenuTriggerFor]="menu">
+      <div *ngIf="totalItem > 0" style="font-size: 11px;" class="badge bg-danger">{{totalItem}}</div>
+      <button class="navbar-item rounded-circle" style="width:60px;height:60px;background:url({{profile[0].Customer_Image}});background-size:cover;border-width:1px;" [matMenuTriggerFor]="menu"></button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
           <span (click)="navigateTo('https://myaccount.microsoft.com/?ref=MeControl')">

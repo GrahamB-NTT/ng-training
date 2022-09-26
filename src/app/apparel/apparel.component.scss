@@ -8,3 +8,11 @@
 .hovShadow:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
+
+.addShadow {
+    transition: box-shadow .3s;
+}
+
+.addShadow:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+}
