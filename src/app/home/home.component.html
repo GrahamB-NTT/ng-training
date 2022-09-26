@@ -2,5 +2,21 @@
     <app-nav></app-nav>
     <div class="p-3 m-0" style="text-align: center;">
         <h1>Welcome, {{username}}!</h1>
+        <br><br>
+        <h2>Popular Items</h2>
+        <div class="p-3 m-0" style="text-align: center;">
+            <div class="row justify-content-center">
+                <div *ngFor="let entry of products" class="card col-sm-3 m-0">
+                    <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{entry.title}}</h5>
+                        <p class="card-text">{{entry.price}}</p>
+                        <a class="btn btn-primary" style="background-color: #617fb7; color: white;border: none;" (click)="addToCart(entry)">
+                            Add To Cart
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

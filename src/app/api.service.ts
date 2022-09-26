@@ -13,6 +13,10 @@ export class ApiService {
     return this.http.get('http://localhost:4201/users');
   }
 
+  public getAllOrders(): Observable<any> {
+    return this.http.get('http://localhost:4201/orders');
+  }
+
   public getOrderHistory(name): Observable<any> {
     return this.http.get('http://localhost:4201/orders/' + name);
   }
@@ -21,8 +25,16 @@ export class ApiService {
     return this.http.get('http://localhost:4201/selectProduct/' + category);
   }
 
-  public postOrderHistory(httpOptions): Observable<any> {
-    return this.http.post('http://localhost:4201/orders/', httpOptions);
+  public postOrderHistory(httpBody): Observable<any> {
+    return this.http.post<any>('http://localhost:4201/orders/', httpBody);
+  }
+
+  public getPopularProducts(): Observable<any> {
+    return this.http.get('http://localhost:4201/popular');
+  }
+
+  public getUserById(name): Observable<any> {
+    return this.http.get('http://localhost:4201/users/' + name)
   }
 
 }

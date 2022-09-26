@@ -17,6 +17,16 @@ const getUsers = (request, response) => {
     })
 }
 
+const getAllOrders = (request, response) => {
+    pool.query('select * from "Order_History" order by "Order_Number" asc', (e, res) => {
+        if (e) {
+            throw e;
+        }
+
+        response.status(200).json(res.rows);
+    })
+}
+
 const getUserById = (request, response) => {
     const id = request.params.id;
 
@@ -64,6 +74,16 @@ const getProductList = (request, response) => {
     })
 }
 
+const getPopularProducts = (request, response) => {
+    pool.query('select * from "ProductList" where "popular" is true order by "id" asc', (e, res) => {
+        if (e) {
+            throw e;
+        }
+
+        response.status(200).json(res.rows);
+    })
+}
+
 const getProductById = (request, response) => {
     const id = request.params.id;
 
@@ -91,9 +111,11 @@ const getProductByCategory = (request, response) => {
 module.exports = {
     getUsers,
     getUserById,
+    getAllOrders,
     getOrderInfo,
     postOrderInfo,
     getProductList,
     getProductById,
-    getProductByCategory
+    getProductByCategory,
+    getPopularProducts
 }

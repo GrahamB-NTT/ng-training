@@ -25,10 +25,12 @@ app.get('/', (req, res) => {
 
 app.get('/users', db.getUsers);
 app.get('/users/:id', db.getUserById);
+app.get('/orders', db.getAllOrders);
 app.get('/orders/:id', db.getOrderInfo);
 app.post('/orders', db.postOrderInfo);
 app.get('/products', db.getProductList);
 app.get('/products/:id', db.getProductById);
+app.get('/popular', db.getPopularProducts);
 app.get('/selectProduct/:id', db.getProductByCategory);
 
 app.listen(port, () => {

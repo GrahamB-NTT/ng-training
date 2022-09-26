@@ -1,8 +1,28 @@
 <body>
     <div class="mainPage">
         <app-nav></app-nav>
-        <div class="p-3 m-0" style="text-align: center;">
-            <h1>Checkout</h1>
-        </div>
+        <ng-container *ngIf="pageString === 'empty'">
+            <div class="card">
+                <h2 class="card-title" style="font-weight: 500;">Checkout</h2>
+            </div>
+            <div class="center">
+                <img src="../../assets/logos/nttLogo.png" alt="">
+                <h4>Your cart is empty.</h4>
+                <a class="btn" style="background-color: #ebebed;" routerLink="/home">Shop Now</a>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="pageString === 'checkout'">
+            <div class="card">
+                <h1 class="card-title" style="text-align:center">Checkout</h1>
+                <button (click)="completeOrder()" class="btn btn-success card-text">Complete Transaction</button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="pageString === 'thanks'">
+            <div class="card" style="text-align:center;">
+                <h1 class="card-title">Thank You!</h1>
+                <p class="card-text">Your order has been received. Check the Order History page to track your package.</p>
+                <button routerLink="/home" class="btn btn-success card-text">Return to Homepage</button>
+            </div>
+        </ng-container>
     </div>
 </body>

@@ -21,7 +21,6 @@ export class CartComponent implements OnInit {
       }
       this.product = result;
       this.grandTotal = this.cartServe.getTotalPrice().toFixed(2);
-      console.log(this.emptyCart);
     })
   }
 
