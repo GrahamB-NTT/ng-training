@@ -9,13 +9,13 @@
          <li class="navbar-item active">
           <a class="nav-link" routerLink="/accessory" style="font-weight:550;">Accessories</a>
         </li>
-        <li class="navbar-item form-group">
-          <input type="text" class="form-control" placeholder="search products">
+        <li>
+          <!--Search Bar Here-->
         </li>
        </ul>
      </div>
      <div>
-      <div *ngIf="totalItem > 0" style="font-size: 11px;" class="badge bg-danger">{{totalItem}}</div>
+      <div *ngIf="products.length > 0" style="font-size: 11px;" class="badge bg-danger">{{products.length}}</div>
       <button class="navbar-item rounded-circle" style="width:60px;height:60px;background:url({{profile[0].Customer_Image}});background-size:cover;border-width:1px;" [matMenuTriggerFor]="menu"></button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item>
@@ -28,7 +28,7 @@
           <span routerLink="/cart">
             <img width="17" height="17" src="../../assets/logos/cart.png" style="opacity: .7;">
             View Cart
-            <div style="font-size: 11px;" class="badge bg-danger">{{totalItem}}</div>
+            <div style="font-size: 11px;" class="badge bg-danger">{{products.length}}</div>
           </span>
         </button>
         <button mat-menu-item>

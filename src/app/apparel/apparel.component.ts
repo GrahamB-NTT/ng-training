@@ -6,6 +6,8 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 import { ApiService } from '../api.service';
 import { Product } from '../product';
 import { CartService } from '../cart.service';
+import { PopupComponent } from '../popup/popup.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-apparel',
@@ -19,7 +21,7 @@ export class ApparelComponent implements OnInit {
   apparelString: string = '';
   products!: Product[];
 
-  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService, private cartServe: CartService) { }
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService, private cartServe: CartService, private dialog: MatDialog) { }
 
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
@@ -54,5 +56,16 @@ export class ApparelComponent implements OnInit {
 
   addToCart(product: any) {
     this.cartServe.addToCart(product);
+  }
+
+  openDialog(idx, titlex, pricex, imagex) {
+    this.dialog.open<PopupComponent, any>(PopupComponent, {
+      data: {
+        id: idx,
+        title: titlex,
+        price: pricex,
+        image: imagex
+      }
+    })
   }
 }

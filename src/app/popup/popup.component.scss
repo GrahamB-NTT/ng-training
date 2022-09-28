@@ -1,0 +1,12 @@
+.addShadow {
+    transition: box-shadow .3s;
+}
+
+.addShadow:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.45);
+}
+
+.rounded-im {
+    border-radius: 2.8rem;
+    border-width: 20px;
+}

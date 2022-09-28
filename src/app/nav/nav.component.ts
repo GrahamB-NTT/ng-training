@@ -2,9 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 
 import {OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
+
 import { ApiService } from '../api.service';
 import { CartService } from '../cart.service';
 import { User } from '../user';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-nav',
@@ -15,8 +17,8 @@ import { User } from '../user';
 export class NavComponent implements OnInit {
 
   isAuthenticated: boolean = false;
-  public totalItem: number = 0;
   public profile!: User[];
+  public products!: Product[];
 
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService, private cartServe: CartService) {
     this.oktaAuth.authStateManager.subscribe(isAuth => this.isAuthenticated = isAuth);
@@ -25,12 +27,12 @@ export class NavComponent implements OnInit {
   async ngOnInit() {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     if (this.isAuthenticated) {
-      this.api.getUserById((await this.oktaAuth.getUser()).name).subscribe(result => {
+      this.api.getUserById((await this.oktaAuth.getUser())?.name).subscribe(result => {
         this.profile = result;
       });
 
       this.cartServe.getProducts().subscribe(result => {
-        this.totalItem = result.length;
+        this.products = result;
       })
     }
   }

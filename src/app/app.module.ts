@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -21,6 +22,11 @@ import nttOktaConfig from './config/ntt-okta-config';
 import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PopupComponent } from './popup/popup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
 
 const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
 
@@ -35,7 +41,8 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
     CartComponent,
     PolicyComponent,
     OrdersComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,13 @@ const oktaAuth = new OktaAuth(nttOktaConfig.oidc);
     BrowserAnimationsModule,
     MatMenuModule,
     HttpClientModule,
-    MatCheckboxModule
+    MatCheckboxModule, 
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [
     {

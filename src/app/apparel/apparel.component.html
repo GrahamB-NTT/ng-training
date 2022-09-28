@@ -30,14 +30,10 @@
             <button (click)="onSelectMain()">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2">
+                    <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                         <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{entry.title}}</h5>
-                            <p class="card-text">{{entry.price}}</p>
-                            <a class="btn btn-primary addShadow rounded" style="background-color: #617fb7; color: white;border: none;" (click)="addToCart(entry)">
-                                Add To Cart
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -48,14 +44,10 @@
             <button (click)="onSelectMain()">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2">
+                    <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                         <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{entry.title}}</h5>
-                            <p class="card-text">{{entry.price}}</p>
-                            <a class="btn btn-primary addShadow rounded" style="background-color: #617fb7; color: white;border: none;" (click)="addToCart(entry)">
-                                Add To Cart
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -66,14 +58,10 @@
             <button (click)="onSelectMain()">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2">
+                    <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                         <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{entry.title}}</h5>
-                            <p class="card-text">{{entry.price}}</p>
-                            <a class="btn btn-primary addShadow rounded" style="background-color: #617fb7; color: white;border: none;" (click)="addToCart(entry)">
-                                Add To Cart
-                            </a>
                         </div>
                     </div>
                 </div>

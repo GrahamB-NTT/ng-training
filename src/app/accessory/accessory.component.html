@@ -4,29 +4,65 @@
     <div class="p-3 m-0" style="text-align: center;">
         <div class="container">
             <h1>Accessories</h1>
-            <div>
+            <!--<div>
                 <h3>Filters:</h3>
-                <mat-checkbox >Bags</mat-checkbox>
-                <mat-checkbox style="margin-left: 20px;">INDYCAR</mat-checkbox>
-                <mat-checkbox style="margin-left: 20px;">Lanyards</mat-checkbox>
-                <mat-checkbox style="margin-left: 20px;">Mugs</mat-checkbox>
-                <mat-checkbox style="margin-left: 20px;">Office Supplies</mat-checkbox>
-                <mat-checkbox style="margin-left: 20px;">Recreational</mat-checkbox>
-                <mat-checkbox style="margin-left: 20px;">Tech</mat-checkbox>
-            </div>
+                <mat-checkbox [(ngModel)]="bag" type="checkbox">Bags</mat-checkbox>
+                <mat-checkbox [(ngModel)]="indycar" type="checkbox" style="margin-left: 20px;">INDYCAR</mat-checkbox>
+                <mat-checkbox [(ngModel)]="lanyard" type="checkbox" style="margin-left: 20px;">Lanyards</mat-checkbox>
+                <mat-checkbox [(ngModel)]="mug" type="checkbox" style="margin-left: 20px;">Mugs</mat-checkbox>
+                <mat-checkbox [(ngModel)]="supplies" type="checkbox" style="margin-left: 20px;">Office Supplies</mat-checkbox>
+                <mat-checkbox [(ngModel)]="recreational" type="checkbox" style="margin-left: 20px;">Recreational</mat-checkbox>
+                <mat-checkbox [(ngModel)]="technology" type="checkbox" style="margin-left: 20px;">Tech</mat-checkbox>
+            </div>-->
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2">
-                        <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{entry.title}}</h5>
-                            <p class="card-text">{{entry.price}}</p>
-                            <a class="btn btn-primary addShadow rounded" style="background-color: #617fb7; color: white;border: none;" (click)="addToCart(entry)">
-                                Add To Cart
-                            </a>
+                    <!--<div *ngFor="let entry of products">
+                        <div *ngIf="checkSelected(entry.type)">-->
+                            <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
+                                <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{entry.title}}</h5>
+                                </div>
+                            </div>
+                        <!--</div>
+                    </div>-->
+                </div>
+                <!--<div *ngFor="let entry of products; let i=index">
+                    <div *ngIf="i%5==0">
+                        <div class="row justify-content-center">
+                            <div *ngIf="checkSelected(products[i].type)" class="card col-sm-2 m-2" (click)="openDialog(products[i].id, products[i].title, products[i].price, products[i].image)">
+                                <img class="card-img-top" src="{{products[i].image}}" alt="{{products[i].title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{products[i].title}}</h5>
+                                </div>
+                            </div>
+                            <div *ngIf="checkSelected(products[i+1].type)" class="card col-sm-2 m-2" (click)="openDialog(products[i+1].id, products[i+1].title, products[i+1].price, products[i+1].image)">
+                                <img class="card-img-top" src="{{products[i+1].image}}" alt="{{products[i+1].title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{products[i+1].title}}</h5>
+                                </div>
+                            </div>
+                            <div *ngIf="checkSelected(products[i+2].type)" class="card col-sm-2 m-2" (click)="openDialog(products[i+2].id, products[i+2].title, products[i+2].price, products[i+2].image)">
+                                <img class="card-img-top" src="{{products[i+2].image}}" alt="{{products[i+2].title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{products[i+2].title}}</h5>
+                                </div>
+                            </div>
+                            <div *ngIf="checkSelected(products[i+3].type)" class="card col-sm-2 m-2" (click)="openDialog(products[i+3].id, products[i+3].title, products[i+3].price, products[i+3].image)">
+                                <img class="card-img-top" src="{{products[i+3].image}}" alt="{{products[i+3].title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{products[i+3].title}}</h5>
+                                </div>
+                            </div>
+                            <div *ngIf="checkSelected(products[i+4].type)" class="card col-sm-2 m-2" (click)="openDialog(products[i+4].id, products[i+4].title, products[i+4].price, products[i+4].image)">
+                                <img class="card-img-top" src="{{products[i+4].image}}" alt="{{products[i+4].title}}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{products[i+4].title}}</h5>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
     </div>

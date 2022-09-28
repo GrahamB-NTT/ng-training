@@ -1,0 +1,13 @@
+<h1 mat-dialog-title style="text-align:center;">{{data.title}}</h1>
+<div mat-dialog-content style="text-align:center;">
+    <img class="rounded-im" src="{{data.image}}" style="width:250px;height:250px;">
+    <br>
+    <p>{{data.price}}</p>
+    <br>
+    <div mat-dialog-options class="row">
+        <a class="btn col-sm m-3 addShadow rounded" style="background-color:#617fb7; color:white;border:none;" (click)="addToCart(data)">
+            Add To Cart
+        </a>
+        <button mat-dialog-close class="btn col-sm m-3 addShadow rounded" style="background-color:rgb(255, 75, 75);color:white;border:none;">Close Window</button>
+    </div>
+</div>

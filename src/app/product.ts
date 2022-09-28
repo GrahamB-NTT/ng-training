@@ -4,4 +4,5 @@ export class Product {
     price!: String;
     category!: String;
     image!: String;
+    type!: String;
 }
