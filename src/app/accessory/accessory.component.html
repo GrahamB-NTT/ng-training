@@ -4,21 +4,21 @@
     <div class="p-3 m-0" style="text-align: center;">
         <div class="container">
             <h1>Accessories</h1>
-            <!--<div>
+            <div>
                 <h3>Filters:</h3>
-                <mat-checkbox [(ngModel)]="bag" type="checkbox">Bags</mat-checkbox>
-                <mat-checkbox [(ngModel)]="indycar" type="checkbox" style="margin-left: 20px;">INDYCAR</mat-checkbox>
-                <mat-checkbox [(ngModel)]="lanyard" type="checkbox" style="margin-left: 20px;">Lanyards</mat-checkbox>
-                <mat-checkbox [(ngModel)]="mug" type="checkbox" style="margin-left: 20px;">Mugs</mat-checkbox>
-                <mat-checkbox [(ngModel)]="supplies" type="checkbox" style="margin-left: 20px;">Office Supplies</mat-checkbox>
-                <mat-checkbox [(ngModel)]="recreational" type="checkbox" style="margin-left: 20px;">Recreational</mat-checkbox>
-                <mat-checkbox [(ngModel)]="technology" type="checkbox" style="margin-left: 20px;">Tech</mat-checkbox>
-            </div>-->
+                <mat-checkbox [(ngModel)]="bag" type="checkbox" (change)="onChange()">Bags</mat-checkbox>
+                <mat-checkbox [(ngModel)]="indycar" type="checkbox" (change)="onChange()" style="margin-left: 20px;">INDYCAR</mat-checkbox>
+                <mat-checkbox [(ngModel)]="lanyard" type="checkbox" (change)="onChange()" style="margin-left: 20px;">Lanyards</mat-checkbox>
+                <mat-checkbox [(ngModel)]="mug" type="checkbox" (change)="onChange()" style="margin-left: 20px;">Mugs</mat-checkbox>
+                <mat-checkbox [(ngModel)]="supplies" type="checkbox" (change)="onChange()" style="margin-left: 20px;">Office Supplies</mat-checkbox>
+                <mat-checkbox [(ngModel)]="recreational" type="checkbox" (change)="onChange()" style="margin-left: 20px;">Recreational</mat-checkbox>
+                <mat-checkbox [(ngModel)]="technology" type="checkbox" (change)="onChange()" style="margin-left: 20px;">Tech</mat-checkbox>
+            </div>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
                     <!--<div *ngFor="let entry of products">
                         <div *ngIf="checkSelected(entry.type)">-->
-                            <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
+                            <div *ngFor="let entry of products" class="card col-sm-2 m-2 btn" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                                 <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                                 <div class="card-body">
                                     <h5 class="card-title">{{entry.title}}</h5>

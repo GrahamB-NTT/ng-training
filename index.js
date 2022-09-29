@@ -32,6 +32,7 @@ app.get('/products', db.getProductList);
 app.get('/products/:id', db.getProductById);
 app.get('/popular', db.getPopularProducts);
 app.get('/selectProduct/:id', db.getProductByCategory);
+app.get('/access/:id', db.getTypedAccessories);
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

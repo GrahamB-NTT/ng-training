@@ -8,7 +8,7 @@
                 <div class="col-sm" ng-app="app-apparel">
                     <p>Men's</p>
                     <div class="hovShadow rounded">
-                        <img type="button" class="border border-secondary rounded" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp.png" style="height:350px;width:200px;background-color: white;">
+                        <img type="button" class="border border-secondary rounded" (click)="onSelectMen()" src="../../assets/imageRoutes/maApp.png" style="height:350px;width:200px;background-color:white;">
                     </div>
                 </div>
                 <div class="col-sm">
@@ -27,10 +27,10 @@
         </div>
         <div *ngIf="apparelString === 'men'" class="container">
             <h1>Men's Apparel</h1>
-            <button (click)="onSelectMain()">Back</button>
+            <button class="rounded" (click)="onSelectMain()" style="background-color:rgba(97, 127, 183, 1);border-width:1px;width:65px;height:30px;">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
+                    <div *ngFor="let entry of products" class="card col-sm-2 m-2 btn" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                         <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{entry.title}}</h5>
@@ -41,10 +41,10 @@
         </div>
         <div *ngIf="apparelString === 'women'" class="container">
             <h1>Women's Apparel</h1>
-            <button (click)="onSelectMain()">Back</button>
+            <button class="rounded" (click)="onSelectMain()" style="background-color:rgba(97, 127, 183, .8);border-width:1px;width:65px;height:30px;">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
+                    <div *ngFor="let entry of products" class="card col-sm-2 m-2 btn" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                         <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{entry.title}}</h5>
@@ -55,10 +55,10 @@
         </div>
         <div *ngIf="apparelString === 'neutral'" class="container">
             <h1>Neutral & Pride Apparel</h1>
-            <button (click)="onSelectMain()">Back</button>
+            <button class="rounded" (click)="onSelectMain()" style="background-color:rgba(97, 127, 183, .8);border-width:1px;width:65px;height:30px;">Back</button>
             <div class="p-3 m-0" style="text-align: center;">
                 <div class="row justify-content-center">
-                    <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
+                    <div *ngFor="let entry of products" class="card col-sm-2 m-2 btn" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
                         <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
                         <div class="card-body">
                             <h5 class="card-title">{{entry.title}}</h5>

@@ -1,13 +1,16 @@
 <h1 mat-dialog-title style="text-align:center;">{{data.title}}</h1>
 <div mat-dialog-content style="text-align:center;">
-    <img class="rounded-im" src="{{data.image}}" style="width:250px;height:250px;">
-    <br>
+    <img class="rounded-im" src="{{data.image}}" style="width:200px;height:200px;">
     <p>{{data.price}}</p>
-    <br>
+    <p style="overflow-y: scroll; height:15vh;background-color:rgba(97, 127, 183, .1);text-align:left;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor magna eget est lorem ipsum. Pulvinar pellentesque habitant morbi tristique senectus et netus et. Morbi quis commodo odio aenean sed adipiscing. Ac tortor dignissim convallis aenean et tortor at risus viverra. At erat pellentesque adipiscing commodo elit at. Tellus in hac habitasse platea dictumst. Sed viverra tellus in hac habitasse platea. Consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. In fermentum posuere urna nec tincidunt. Nunc id cursus metus aliquam. Non curabitur gravida arcu ac tortor dignissim convallis aenean. Eget nunc lobortis mattis aliquam. Ultricies integer quis auctor elit sed vulputate mi sit. Aliquet bibendum enim facilisis gravida neque. Molestie a iaculis at erat pellentesque adipiscing commodo. Eu consequat ac felis donec.
+    </p>
     <div mat-dialog-options class="row">
         <a class="btn col-sm m-3 addShadow rounded" style="background-color:#617fb7; color:white;border:none;" (click)="addToCart(data)">
             Add To Cart
         </a>
-        <button mat-dialog-close class="btn col-sm m-3 addShadow rounded" style="background-color:rgb(255, 75, 75);color:white;border:none;">Close Window</button>
+        <button mat-dialog-close class="btn col-sm m-3 addShadow rounded" style="background-color:rgb(255, 75, 75);color:white;border:none;">
+            Close Window
+        </button>
     </div>
 </div>

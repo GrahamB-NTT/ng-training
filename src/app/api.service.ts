@@ -34,7 +34,12 @@ export class ApiService {
   }
 
   public getUserById(name): Observable<any> {
-    return this.http.get('http://localhost:4201/users/' + name)
+    return this.http.get('http://localhost:4201/users/' + name);
+  }
+
+  public getTypedAccessories(strung): Observable<any> {
+    console.log('http://localhost:4201/access/' + strung);
+    return this.http.get('http://localhost:4201/access/' + strung);
   }
 
 }

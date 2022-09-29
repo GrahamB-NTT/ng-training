@@ -15,7 +15,7 @@ export class PopupComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<any>, public cartServe: CartService) { }
 
   ngOnInit(): void {
-    this.dialogRef.updateSize('30%')
+    this.dialogRef.updateSize('30em')
   }
 
   addToCart(data: any) {

@@ -5,12 +5,14 @@
         <br><br>
         <h2 style="margin-left: 5%;">Popular Items</h2>
         <div class="p-0 m-0" style="text-align: center;">
-            <div class="row justify-content-center">
-                <div *ngFor="let entry of products" class="card col-sm-2 m-2" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
-                    <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{entry.title}}</h5>
-                    </div>
+            <div class="float-container rounded">
+                <div class="float-child row">
+                    <button *ngFor="let entry of products" class="entryCard rounded col-sm m-2 btn" (click)="openDialog(entry.id, entry.title, entry.price, entry.image)">
+                        <img class="card-img-top" src="{{entry.image}}" alt="{{entry.title}}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{entry.title}}</h5>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>

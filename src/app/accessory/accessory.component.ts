@@ -1,5 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatCheckbox } from '@angular/material/checkbox';
 import { MatDialog } from '@angular/material/dialog';
 
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -27,6 +26,7 @@ export class AccessoryComponent implements OnInit {
   supplies: boolean = true;
   recreational: boolean = true;
   technology: boolean = true;
+  strung: string = '';
 
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth, private api: ApiService, private cartServe: CartService, private dialog: MatDialog) { }
 
@@ -34,10 +34,10 @@ export class AccessoryComponent implements OnInit {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
 
     if (this.isAuthenticated) {
-      this.api.getProductByCategory('access').subscribe(data => {
-        this.products = data;
-      })
-    }
+        this.api.getProductByCategory('access').subscribe(data => {
+          this.products = data;
+        })
+      }
   }
 
   addToCart(product: any) {
@@ -55,23 +55,20 @@ export class AccessoryComponent implements OnInit {
     })
   }
 
-  checkSelected(type: String) {
-    if (type === 'bag' && this.bag) {
-      return true;
-    } else if (type === 'indycar' && this.indycar) {
-      return true;
-    } else if (type === 'lanyard' && this.lanyard) {
-      return true;
-    } else if (type === 'mug' && this.mug) {
-      return true;
-    } else if (type === 'supplies' && this.supplies) {
-      return true;
-    } else if (type === 'recreational' && this.recreational) {
-      return true;
-    } else if (type === 'technology' && this.technology) {
-      return true;
-    } else {
-      return false;
-    }
+  onChange() {
+    this.products = [];
+    this.strung = '';
+
+    if (this.bag) { this.strung += '1'; } else { this.strung += '0'; }
+    if (this.indycar) { this.strung += '1'; } else { this.strung += '0'; }
+    if (this.lanyard) { this.strung += '1'; } else { this.strung += '0'; }
+    if (this.mug) { this.strung += '1'; } else { this.strung += '0'; }
+    if (this.supplies) { this.strung += '1'; } else { this.strung += '0'; }
+    if (this.recreational) { this.strung += '1'; } else { this.strung += '0'; }
+    if (this.technology) { this.strung += '1'; } else { this.strung += '0'; }
+
+    this.api.getTypedAccessories(this.strung).subscribe(data => {
+      this.products = data;
+    })
   }
 }

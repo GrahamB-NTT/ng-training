@@ -4,5 +4,5 @@ export class Order {
     Paid!: boolean;
     Transaction_Date!: Date;
     Order_Description!: String;
-    Order_Number!: Number;
+    Order_Number!: number;
 }

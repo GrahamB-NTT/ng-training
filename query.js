@@ -108,6 +108,33 @@ const getProductByCategory = (request, response) => {
     })
 }
 
+const getTypedAccessories = (request, response) => {
+    const id = request.params.id;
+    let noll = 'null';
+    let bag = '';
+    let ind = '';
+    let lan = '';
+    let mug = '';
+    let sup = '';
+    let rec = '';
+    let tec = '';
+
+    if (id[0] == '1') { bag = 'bag'; } else { bag = 'null' }
+    if (id[1] == '1') { ind = 'indycar'; } else { ind = 'null' }
+    if (id[2] == '1') { lan = 'lanyard'; } else { lan = 'null' }
+    if (id[3] == '1') { mug = 'mug'; } else { mug = 'null' }
+    if (id[4] == '1') { sup = 'supplies'; } else { sup = 'null' }
+    if (id[5] == '1') { rec = 'recreational'; } else { rec = 'null' }
+    if (id[6] == '1') { tec = 'technology'; } else { tec = 'null' }
+
+    pool.query('select * from "ProductList" where "id" > 2000 and 1 = 1 and "type" = $1 or "type" = $2 or "type" = $3 or "type" = $4 or "type" = $5 or "type" = $6 or "type" = $7 or "type" = $8 order by "title" asc;', [noll, bag, ind, lan, mug, sup, rec, tec], (e, res) => {
+        if (e) {
+            throw e;
+        }
+        response.status(200).json(res.rows);
+    })
+}
+
 module.exports = {
     getUsers,
     getUserById,
@@ -117,5 +144,6 @@ module.exports = {
     getProductList,
     getProductById,
     getProductByCategory,
-    getPopularProducts
+    getPopularProducts,
+    getTypedAccessories
 }

@@ -56,20 +56,20 @@ export class CheckoutComponent implements OnInit {
 
     this.api.getAllOrders().subscribe(data => {
       this.orders = data;
-      this.Order_Number = +(this.orders[this.orders.length - 1].Order_Number) + 1;
+      this.Order_Number = (this.orders[this.orders.length - 1].Order_Number + 1);
+
+      this.api.postOrderHistory(JSON.stringify(
+        [
+          this.Customer_Name, 
+          this.Customer_Email, 
+          this.Order_Number, 
+          this.Order_Description, 
+          this.Transaction_Date, 
+          this.Paid
+        ]
+      ))
     })
-
-    this.api.postOrderHistory(JSON.stringify(
-      [
-        this.Customer_Name, 
-        this.Customer_Email, 
-        this.Order_Number, 
-        this.Order_Description, 
-        this.Transaction_Date, 
-        this.Paid
-      ]
-    ))
-
+    
     this.cartServe.removeAllCartItems();
     
     this.pageString = 'thanks';
